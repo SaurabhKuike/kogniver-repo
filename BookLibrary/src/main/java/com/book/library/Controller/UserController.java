@@ -25,6 +25,7 @@ public class UserController {
 		
 		return new ResponseEntity<>(service.getUser(id),HttpStatus.FOUND);
 	}
+	
 	@GetMapping("/getuser")
 	public ResponseEntity<List<User>> getAllUser(){
 		
