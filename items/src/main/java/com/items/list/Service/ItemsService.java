@@ -1,7 +1,6 @@
 package com.items.list.Service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +27,25 @@ public class ItemsService {
 	public void deleteItem(int id) {
 		repo.deleteById(id);
 	}
+	
+	public Items updateItem(int id,Items item)
+	{
+		Items byId = repo.findById(id).get();
+		if(byId!=null) {
+			byId.setName(item.getName());;
+			byId.setPrice(item.getPrice());
+			byId.setStock(item.getStock());
+			repo.save(byId);
+		}
+		return byId;
+	}
+	
+	public Items updateStock(int id,int updateStock)
+	{
+		Items updateStock2 = repo.updateStock(id, updateStock);
+		System.out.println(updateStock2);
+		repo.save(updateStock2);
+		return updateStock2;
+	}
+	
 }

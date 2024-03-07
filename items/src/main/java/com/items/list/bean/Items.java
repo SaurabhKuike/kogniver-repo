@@ -19,7 +19,7 @@ public class Items {
 	private String name;
 	private double price;
 	private int stock;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+	 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date eventDate;
 	@JsonIgnore
 	private String itempass;
