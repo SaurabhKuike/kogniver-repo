@@ -40,12 +40,12 @@ public class SecurityConfig {
 		
 		return http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/home").permitAll())
+                        .requestMatchers("/home","login.html","style.css").permitAll())
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/user/**").authenticated())
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/admin/**").authenticated())
-                .formLogin(login -> login.loginPage("/login")
+                .formLogin(login -> login.loginPage("/login.html")
                         .defaultSuccessUrl("/home") 
                         .failureUrl("/login?error")
                         .permitAll())

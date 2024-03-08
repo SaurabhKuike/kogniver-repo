@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en"> 
+<html xmlns:th="http://www.thymeleaf.org">
 
  <head> 
 
@@ -8,7 +8,7 @@
 
   <title>CodePen - Animated Login Form using Html &amp; CSS Only</title> 
 
-  <link rel="stylesheet" href="../templates/style.css"> 
+  <link rel="stylesheet" href="style.css"> 
 
  </head> 
 
@@ -22,7 +22,8 @@
 
      <h2>Sign In</h2> 
 
-     <div class="form"> 
+     <form th:action="@{/home}" th:method="post">
+		 <div class="form"> 
 
       <div class="inputBox"> 
 
@@ -47,6 +48,7 @@
       </div> 
 
      </div> 
+	 </form>
 
     </div> 
 

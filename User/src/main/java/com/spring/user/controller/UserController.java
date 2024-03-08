@@ -24,9 +24,4 @@ public class UserController {
 		return "Welcome to Admin Profile";
 	}
 	
-	@GetMapping("/login")
-	public String loginpage() {
-		return "login";
-	}
-	
 }
