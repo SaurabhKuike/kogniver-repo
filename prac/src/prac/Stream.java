@@ -40,8 +40,9 @@ public class Stream {
 		list.add(new employee(5002,6));
 	}
 	public static void main(String[] args) {
-		q1("hello bbbbbbbbbbbbbb world");
-		q2();
+		//q1("hello  world");
+		//q2();
+		q4();
 	}
 	
 	public static void q1(String s)
@@ -78,6 +79,24 @@ public class Stream {
 		e.salary>5000
 		).collect(Collectors.toMap(employee::getSalary,employee::getEid));
 		System.out.println(map);
+	}
+	
+	
+	public static void q4() {
+		
+		List<Integer> list=List.of(1,2,3,4,5,6,7,8,9,10,11,13,17,21,23);
+		
+		List<Integer>prime=list.stream().filter(e->{
+			for(int i=2;i<=e/2;i++)
+			{
+				if(e%i==0)
+					return false;
+			}
+			return true;
+		
+		}).collect(Collectors.toList());
+				
+		System.out.println(prime);
 	}
 	
 }
