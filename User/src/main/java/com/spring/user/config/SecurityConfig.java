@@ -35,7 +35,7 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-	public SecurityFilterChain securityfileChain(HttpSecurity http)throws Exception
+	public SecurityFilterChain securityfilterChain(HttpSecurity http)throws Exception
 	{
 		
 		return http.csrf(csrf -> csrf.disable())

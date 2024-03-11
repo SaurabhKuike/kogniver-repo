@@ -1,35 +1,24 @@
-2024-03-08T14:55:34.765+05:30  INFO 21272 --- [restartedMain] com.spring.food.FoodApplication          : Starting FoodApplication using Java 17.0.10 with PID 21272 (C:\Users\SaurabhKumarUike\OneDrive - Kognivera\Documents\GitHub\kogniver-repo\Food\target\classes started by SaurabhKumarUike in C:\Users\SaurabhKumarUike\OneDrive - Kognivera\Documents\GitHub\kogniver-repo\Food)
-2024-03-08T14:55:34.773+05:30  INFO 21272 --- [restartedMain] com.spring.food.FoodApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-03-08T14:55:34.831+05:30  INFO 21272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-03-08T14:55:34.832+05:30  INFO 21272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-03-08T14:55:36.159+05:30  INFO 21272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-08T14:55:36.225+05:30  INFO 21272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
-2024-03-08T14:55:37.701+05:30  INFO 21272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-03-08T14:55:37.716+05:30  INFO 21272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-03-08T14:55:37.716+05:30  INFO 21272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-03-08T14:55:37.789+05:30  INFO 21272 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-03-08T14:55:37.790+05:30  INFO 21272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2957 ms
-2024-03-08T14:55:38.163+05:30  INFO 21272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-08T14:55:38.267+05:30  INFO 21272 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-03-08T14:55:38.317+05:30  INFO 21272 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-03-08T14:55:38.850+05:30  INFO 21272 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-08T14:55:38.886+05:30  INFO 21272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-08T14:55:39.309+05:30  INFO 21272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@540de6c9
-2024-03-08T14:55:39.312+05:30  INFO 21272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-08T14:55:39.382+05:30  WARN 21272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-08T14:55:39.384+05:30  WARN 21272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2024-03-08T14:55:40.531+05:30  INFO 21272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-03-08T14:55:40.584+05:30  INFO 21272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-08T14:55:41.000+05:30  WARN 21272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-03-08T14:55:41.793+05:30  INFO 21272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-03-08T14:55:41.801+05:30  INFO 21272 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 7 endpoint(s) beneath base path '/actuator'
-2024-03-08T14:55:41.896+05:30  INFO 21272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-03-08T14:55:41.912+05:30  INFO 21272 --- [restartedMain] com.spring.food.FoodApplication          : Started FoodApplication in 7.676 seconds (process running for 9.09)
-2024-03-08T14:55:43.195+05:30  INFO 21272 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-03-08T14:55:43.196+05:30  INFO 21272 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-03-08T14:55:43.200+05:30  INFO 21272 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2024-03-08T15:13:21.021+05:30  WARN 21272 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m41s401ms920µs).
-2024-03-08T15:41:34.909+05:30  INFO 21272 --- [RMI TCP Connection(47)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2024-03-08T15:41:34.945+05:30  INFO 21272 --- [RMI TCP Connection(47)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-03-08T15:41:34.951+05:30  INFO 21272 --- [RMI TCP Connection(47)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-03-08T15:41:34.957+05:30  INFO 21272 --- [RMI TCP Connection(47)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-11T10:01:26.987+05:30  INFO 20456 --- [main] com.spring.food.FoodControllerTest       : Starting FoodControllerTest using Java 17.0.10 with PID 20456 (started by SaurabhKumarUike in C:\Users\SaurabhKumarUike\OneDrive - Kognivera\Documents\GitHub\kogniver-repo\Food)
+2024-03-11T10:01:26.998+05:30  INFO 20456 --- [main] com.spring.food.FoodControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T10:01:29.799+05:30  INFO 20456 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-11T10:01:29.803+05:30  INFO 20456 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-11T10:01:29.805+05:30  INFO 20456 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-03-11T10:01:29.865+05:30  INFO 20456 --- [main] com.spring.food.FoodControllerTest       : Started FoodControllerTest in 3.322 seconds (process running for 4.749)
+2024-03-11T10:01:41.661+05:30  INFO 22444 --- [main] com.spring.food.FoodControllerTest       : Starting FoodControllerTest using Java 17.0.10 with PID 22444 (started by SaurabhKumarUike in C:\Users\SaurabhKumarUike\OneDrive - Kognivera\Documents\GitHub\kogniver-repo\Food)
+2024-03-11T10:01:41.664+05:30  INFO 22444 --- [main] com.spring.food.FoodControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T10:01:43.971+05:30  INFO 22444 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-11T10:01:43.972+05:30  INFO 22444 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-11T10:01:43.974+05:30  INFO 22444 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-03-11T10:01:44.027+05:30  INFO 22444 --- [main] com.spring.food.FoodControllerTest       : Started FoodControllerTest in 2.887 seconds (process running for 4.034)
+2024-03-11T10:01:53.751+05:30  INFO 4104 --- [main] com.spring.food.FoodControllerTest       : Starting FoodControllerTest using Java 17.0.10 with PID 4104 (started by SaurabhKumarUike in C:\Users\SaurabhKumarUike\OneDrive - Kognivera\Documents\GitHub\kogniver-repo\Food)
+2024-03-11T10:01:53.752+05:30  INFO 4104 --- [main] com.spring.food.FoodControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T10:01:55.887+05:30  INFO 4104 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-11T10:01:55.888+05:30  INFO 4104 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-11T10:01:55.890+05:30  INFO 4104 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-03-11T10:01:55.934+05:30  INFO 4104 --- [main] com.spring.food.FoodControllerTest       : Started FoodControllerTest in 2.611 seconds (process running for 3.693)
+2024-03-11T10:02:03.599+05:30  INFO 17252 --- [main] com.spring.food.FoodControllerTest       : Starting FoodControllerTest using Java 17.0.10 with PID 17252 (started by SaurabhKumarUike in C:\Users\SaurabhKumarUike\OneDrive - Kognivera\Documents\GitHub\kogniver-repo\Food)
+2024-03-11T10:02:03.601+05:30  INFO 17252 --- [main] com.spring.food.FoodControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T10:02:05.791+05:30  INFO 17252 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-11T10:02:05.792+05:30  INFO 17252 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-11T10:02:05.793+05:30  INFO 17252 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-03-11T10:02:05.840+05:30  INFO 17252 --- [main] com.spring.food.FoodControllerTest       : Started FoodControllerTest in 2.673 seconds (process running for 3.674)
