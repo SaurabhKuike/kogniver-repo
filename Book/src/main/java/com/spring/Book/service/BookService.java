@@ -11,10 +11,12 @@ import com.spring.Book.bean.Book;
 import com.spring.Book.repository.BookRepository;
 
 @Service
+
 public class BookService {
 
 	@Autowired
 	private BookRepository repo;
+	
 	
 	public Book insertBook(Book b)
 	{

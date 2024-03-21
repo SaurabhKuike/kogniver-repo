@@ -23,6 +23,7 @@ public class FoodService {
 	@Autowired
 	private FoodRepository repo;
 	
+	
 	public Food insertFood(Food f)
 	{
 		log.info("inside insertfood method");

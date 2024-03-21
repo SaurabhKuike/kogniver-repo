@@ -31,8 +31,8 @@ public class BookController {
 		return new ResponseEntity<>(service.getAllBooks(),HttpStatus.FOUND);
 	}
 	
-	@PostMapping("/addbook")
-	public ResponseEntity<Book> addBook(@RequestBody Book b)
+	@PostMapping("/addbook/{id}")
+	public ResponseEntity<Book> addBook(@RequestBody Book b,@PathVariable("id")int id)
 	{
 		System.out.println(b);
 		boolean book = service.addBook(b);

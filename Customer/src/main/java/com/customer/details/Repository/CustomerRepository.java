@@ -14,9 +14,13 @@ public interface CustomerRepository extends MongoRepository<Customer, Integer>{
 	
 	public Customer findByEmail(String email);
 	
-	@Query("{ 'cust_address' : ?0 }")
+	@Query(value="{ 'cust_address' : ?0 }")
     List<Customer> findByCustAddress(String custAddress);
 	
-	@Query("{'cust_name' : ?0 }")
+	@Query(value="{'cust_name' : ?0 }", fields="{'cust_address':0,'email':0}")
 	Customer findByCustName(String custName);
+	
+	@Query(value="{ 'email': ?0, 'cust_address': { $exists: true } }", fields="{ 'cust_name': 1, 'gender': 1 }")
+	Customer findByCustEmail(String email);
+
 }

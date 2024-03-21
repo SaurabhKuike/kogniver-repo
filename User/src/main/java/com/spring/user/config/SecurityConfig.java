@@ -1,57 +1,52 @@
 package com.spring.user.config;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.spring.user.security.CustomuserDetalService;
 
 @EnableWebSecurity
 @EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
 
-	
-	@Bean
-	public UserDetailsService userDetailService(PasswordEncoder encoder) {
-		
-		UserDetails Admin=User.withUsername("Saurabh")
-				.password(encoder.encode("$Aurabh123"))
-				.roles("ADMIN","USER")
-				.build();
-		
-		UserDetails user=User.withUsername("user")
-				.password(encoder.encode("user"))
-				.roles("USER")
-				.build();
-		return new InMemoryUserDetailsManager(Admin,user);
-	}
-	
-	@Bean
-	public SecurityFilterChain securityfilterChain(HttpSecurity http)throws Exception
-	{
-		
-		return http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(request -> request
-                        .requestMatchers("/home","login.html","style.css").permitAll())
-                .authorizeHttpRequests(request -> request
-                        .requestMatchers("/user/**").authenticated())
-                .authorizeHttpRequests(request -> request
-                        .requestMatchers("/admin/**").authenticated())
-                .formLogin(login -> login.loginPage("/login.html")
-                        .defaultSuccessUrl("/home") 
-                        .failureUrl("/login?error")
-                        .permitAll())
-                .build();
-	}
-	
+	@Autowired
+	private CustomuserDetalService userDetailService;
+
+    
+    
+	  @Bean
+		public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	          http
+	                  
+	                  .authorizeHttpRequests(requests -> requests
+	                          .requestMatchers("/api/home","/api/register","/admin/adminprofile").permitAll()
+	                          .requestMatchers("/api/user/**").hasAnyRole("ADMIN", "USER")
+	                          .requestMatchers("/api/admin/**").hasRole("ADMIN")
+	                          .anyRequest().authenticated()).csrf(csrf -> csrf.disable()).httpBasic(withDefaults());
+		            
+		    return http.build();
+		           // .logout(logout->logout.logoutUrl("/authfac/user/logout").permitAll())
+		           
+		}
+
+
+
+protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.userDetailsService(this.userDetailService).passwordEncoder(passwordencoder());
+}
+
 	@Bean
 	public PasswordEncoder passwordencoder() {
 		return new BCryptPasswordEncoder();

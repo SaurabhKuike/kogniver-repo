@@ -49,10 +49,7 @@ public class CustomerService {
 		repo.deleteById(cust_id);
 	}
 	
-	public Customer findbyEmail(String email) {
-		Customer byEmail = repo.findByEmail(email);
-		return byEmail;
-	}
+	
 	
 	public List<Customer> findAllCustomerByAddress(String address)
 	{
@@ -62,6 +59,12 @@ public class CustomerService {
 	
 	public Customer findByName(String name) {
 		Customer cust = repo.findByCustName(name);
+		return cust;
+	}
+	
+	public Customer findbyEmail(String email)
+	{
+		Customer cust=repo.findByCustEmail(email);
 		return cust;
 	}
 }
