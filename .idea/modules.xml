@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.org.eclipse.egit.core.cmp.iml" filepath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.org.eclipse.egit.core.cmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Book/Book.iml" filepath="$PROJECT_DIR$/Book/Book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BookLibrary/BookLibrary.iml" filepath="$PROJECT_DIR$/BookLibrary/BookLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Customer/Customer.iml" filepath="$PROJECT_DIR$/Customer/Customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECommerceApplication/ECommerceApplication.iml" filepath="$PROJECT_DIR$/ECommerceApplication/ECommerceApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Employee/Employee.iml" filepath="$PROJECT_DIR$/Employee/Employee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Food/Food.iml" filepath="$PROJECT_DIR$/Food/Food.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Student/Student.iml" filepath="$PROJECT_DIR$/Student/Student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/User/User.iml" filepath="$PROJECT_DIR$/User/User.iml" />
+      <module fileurl="file://$PROJECT_DIR$/items/items.iml" filepath="$PROJECT_DIR$/items/items.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loginlogout/loginlogout.iml" filepath="$PROJECT_DIR$/loginlogout/loginlogout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prac/prac.iml" filepath="$PROJECT_DIR$/prac/prac.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product/product.iml" filepath="$PROJECT_DIR$/product/product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sercurityspring/sercurityspring.iml" filepath="$PROJECT_DIR$/sercurityspring/sercurityspring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springsecurity2/springsecurity2.iml" filepath="$PROJECT_DIR$/springsecurity2/springsecurity2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springsecurityusingJWT/springsecurityusingJWT.iml" filepath="$PROJECT_DIR$/springsecurityusingJWT/springsecurityusingJWT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user_profile/user_profile.iml" filepath="$PROJECT_DIR$/user_profile/user_profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vehicle/vehicle.iml" filepath="$PROJECT_DIR$/vehicle/vehicle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vehicle-1/vehicle-1.iml" filepath="$PROJECT_DIR$/vehicle-1/vehicle-1.iml" />
+    </modules>
+  </component>
+</project>

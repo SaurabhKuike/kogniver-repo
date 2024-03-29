@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+/**
+ * DTO Class for registering user
+ */
 public class UserDto {
 	
 	private String email;

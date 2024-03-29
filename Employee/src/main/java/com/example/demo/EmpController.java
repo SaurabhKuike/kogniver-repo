@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class EmpController {
 	
@@ -14,14 +15,12 @@ public class EmpController {
 	}
 	@GetMapping("/getEmp")
 	public Employee getEMp() {
-		Employee e=new Employee("Saurabh","9893916735",new Date());
-		return e;
+        return new Employee("Kanhaiya Uike","989391635",new Date());
 	}
 	
 	@GetMapping("/getEmp1")
 	public Employee getEMp1() {
-		Employee e=new Employee("Savita","9479118837",new Date());
-		return e;
+        return new Employee("Savita","9479118837",new Date());
 	}
 	
 }

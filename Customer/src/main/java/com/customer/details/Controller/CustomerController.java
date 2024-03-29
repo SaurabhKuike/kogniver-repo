@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.customer.details.Service.CustomerService;
 import com.customer.details.model.Customer;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
 @RestController
 @RequestMapping("/cust_details")
 public class CustomerController {
@@ -64,6 +66,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/getcustbyadd/{address}")
+	@Hidden
 	public ResponseEntity<List<Customer>> getAllCustomerByAddress(@PathVariable("address")String address){
 		List<Customer> allCustomerDetails = service.findAllCustomerByAddress(address);
 		return new ResponseEntity<>(allCustomerDetails,HttpStatus.OK);

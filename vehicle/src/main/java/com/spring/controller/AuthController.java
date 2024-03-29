@@ -1,5 +1,6 @@
 package com.spring.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.Dto.LoginDto;
@@ -23,9 +24,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Controller for authorizing USER
+ *
+ */
 @RestController
 @Slf4j
 @RequestMapping("/api")
+@SecurityRequirement(name = "vehicle")
 public class AuthController {
 
 	@Autowired
@@ -39,6 +45,11 @@ public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+	/**
+	 *Method to authenticate a User
+	 * @param loginDto Pass loginDto object as parameter to log in the User
+	 * @return ResponseEntity Object with message User signed in successfully and HttpStatus ok and code 200
+	 */
     @PostMapping("/login")
     public ResponseEntity<Object> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -48,15 +59,26 @@ public class AuthController {
      return   CustomResponseHandler.responsebuilder("User Signed-in Successfully!", HttpStatus.OK, authentication);
       
     }
-    
-    @PostMapping("/registration")
+
+	/**
+	 *Method to register a user
+	 * @param userDto DTO class having fields to register a user
+	 * @return ResponseEntity having message User Registered Successfully and HttpStatus Created and Code 201 and return UserDto object
+	 */
+	@PostMapping("/registration")
 	public ResponseEntity<Object> saveUser(@RequestBody UserDto userDto) {
 		userService.save(userDto);
 		log.info("user registered");
 		 return   CustomResponseHandler.responsebuilder("User Registered Successfully!", HttpStatus.CREATED, userDto);
 	}
-    
-    @PostMapping("/logout")
+
+	/**
+	 *Method to log out a user and clear authentication object from security context
+	 * @param request Http Request Object as parameter
+	 * @param response Http Response Object as parameter
+	 * @return ResponseEntity Object with message and HttpStatus ok and object
+	 */
+	@PostMapping("/logout")
 	public ResponseEntity<Object> logout(HttpServletRequest request,HttpServletResponse response) {
     	log.info("user loggged out");
     	logouthandler.logout(request, response, null);
@@ -64,9 +86,13 @@ public class AuthController {
     	log.info("user logout");
     	return   CustomResponseHandler.responsebuilder("User Logged-Off Successfully!", HttpStatus.OK, logouthandler);
 	}
-    
-    @GetMapping("/welcome")
+
+	/**
+	 *Role free endpoint for checking
+	 * @return return a message This Endpoint can be accessed by any role
+	 */
+	@GetMapping("/welcome")
     public String welcome() {
-    	return "Registration Successfull";
+    	return " This Endpoint can be accessed by any role";
     }
 }

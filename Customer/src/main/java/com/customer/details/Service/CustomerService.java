@@ -33,14 +33,17 @@ public class CustomerService {
 	public Customer updateCustomerDetails(int cust_id,Customer customer)
 	{
 		Customer byId = repo.findById(cust_id).get();
+		
 		if(byId!=null)
 		{
 			byId.setCust_address(customer.getCust_address());
 			byId.setCust_name(customer.getCust_name());
 			byId.setEmail(customer.getEmail());
 			byId.setGender(customer.getGender());
+			repo.save(byId);
 			return byId;
 		}
+		
 		return null;
 	}
 	

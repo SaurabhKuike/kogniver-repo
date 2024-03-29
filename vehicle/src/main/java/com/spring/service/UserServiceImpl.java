@@ -11,16 +11,30 @@ import com.spring.entity.User;
 import com.spring.repository.UserRepository;
 
 
-
+/**
+ * UserService implementation class
+ */
 @Service
 public class UserServiceImpl implements UserService{
 
-	@Autowired
+	/**
+	 * password Encoder Object for saving the password of user encrypted
+	 */
 	private PasswordEncoder passwordencoder;
-	
-	
-	@Autowired
+
+	/**
+	 * UserRepository object to perform CRUD operation
+	 */
 	private UserRepository repo;
+	UserServiceImpl(){
+
+	}
+	@Autowired
+	private UserServiceImpl(PasswordEncoder passwordencoder,UserRepository repo){
+		this.passwordencoder=passwordencoder;
+		this.repo=repo;
+	}
+
 	
 	public List<User> getalluser(){
 		return repo.findAll();
@@ -50,4 +64,9 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+	public User deleteUserbyEmail(String email){
+		User user=repo.findByEmail(email);
+		repo.delete(user);
+		return user;
+	}
 }

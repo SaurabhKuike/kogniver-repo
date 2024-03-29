@@ -8,6 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity Class for saving A Vehicle Object
+ */
 @Entity
 @Data
 @AllArgsConstructor
