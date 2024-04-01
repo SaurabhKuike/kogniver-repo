@@ -9,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,19 +23,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Roles {
-	public Roles(int i, String string) {
-		roleid=i;
-		string=rolename;
+	public Roles(int roleid, String rolename) {
+		this.roleid=roleid;
+		this.rolename=rolename;
 		
 		
 	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@NotNull
 	private int roleid;
+	@NotNull
+	@Size(min = 3,message = "Role Name can not be fewer than 4 characters")
 	private String rolename;
 	
 	@JsonIgnore
-	 @ManyToMany(mappedBy = "roles")
+	@ManyToMany(mappedBy = "roles")
 	private List<User> user;
 }

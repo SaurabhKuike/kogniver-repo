@@ -1,4 +1,5 @@
 package com.spring.service;
+import com.spring.Dto.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.spring.entity.User;
 import com.spring.repository.UserRepository;
+
+import java.util.Optional;
 
 /**
  * This class is used to load a User from Database .
@@ -17,7 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	/**
 	 * user repository object to load a user using Username or here as email
 	 */
-	 private UserRepository userRepository;
+	 private final UserRepository userRepository;
 
 	/**
 	 * Constructor to set UserRepository object
@@ -36,13 +39,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(username);
-		if (user == null) {
-			throw new UsernameNotFoundException("user not found");
-		}
-		
-		return new CustomUserDetail(user);
+		Optional<User> user = userRepository.findByEmail(username);
 
+		return user.map(CustomUserDetail::new).orElseThrow(() -> new ResourceNotFoundException("User", "email", username));
 	}
 
 }

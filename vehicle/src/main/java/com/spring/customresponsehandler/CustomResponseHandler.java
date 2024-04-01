@@ -13,7 +13,7 @@ public class CustomResponseHandler {
 
 	public static ResponseEntity<Object> responsebuilder(String message,HttpStatus status, Object responseobject)
 	{
-		Map<String, Object> response=new HashMap<String, Object>();
+		Map<String, Object> response= new HashMap<>();
 		response.put("message", message);
 		response.put("status", status);
 		response.put("response", responseobject);

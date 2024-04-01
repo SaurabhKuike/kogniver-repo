@@ -19,6 +19,7 @@ import com.customer.details.Service.CustomerService;
 import com.customer.details.model.Customer;
 
 import io.swagger.v3.oas.annotations.Hidden;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/cust_details")
@@ -28,10 +29,10 @@ public class CustomerController {
 	private CustomerService service;
 
 	@PostMapping
-	public ResponseEntity<Customer> insertCustomerDetails(@RequestBody Customer customer) { 
+	public Customer insertCustomerDetails(@Valid@RequestBody Customer customer) { 
 		
 		Customer insertCustomer = service.insertCustomer(customer);
-		return new ResponseEntity<>(insertCustomer,HttpStatus.CREATED);
+		return insertCustomer;
 	}
 	
 	@GetMapping("/getcust/{id}")

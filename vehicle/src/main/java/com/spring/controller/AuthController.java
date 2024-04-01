@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.Dto.LoginDto;
@@ -66,7 +67,7 @@ public class AuthController {
 	 * @return ResponseEntity having message User Registered Successfully and HttpStatus Created and Code 201 and return UserDto object
 	 */
 	@PostMapping("/registration")
-	public ResponseEntity<Object> saveUser(@RequestBody UserDto userDto) {
+	public ResponseEntity<Object> saveUser(@Valid @RequestBody UserDto userDto) {
 		userService.save(userDto);
 		log.info("user registered");
 		 return   CustomResponseHandler.responsebuilder("User Registered Successfully!", HttpStatus.CREATED, userDto);
@@ -86,13 +87,4 @@ public class AuthController {
     	log.info("user logout");
     	return   CustomResponseHandler.responsebuilder("User Logged-Off Successfully!", HttpStatus.OK, logouthandler);
 	}
-
-	/**
-	 *Role free endpoint for checking
-	 * @return return a message This Endpoint can be accessed by any role
-	 */
-	@GetMapping("/welcome")
-    public String welcome() {
-    	return " This Endpoint can be accessed by any role";
-    }
 }

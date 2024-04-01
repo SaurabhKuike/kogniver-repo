@@ -1,6 +1,5 @@
 /**
  * This module is to provide Java Documentation about project
- * 
  *This is Java practice project where i have used Swagger and user Java docs
  *
  * @since 1.0

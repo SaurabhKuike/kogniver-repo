@@ -13,6 +13,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,9 +32,17 @@ public class User{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@NotNull
 	private int user_id;
+	@NotNull
+	@Size(min = 3 ,max = 20, message = "Username can not be fewer than 3 letters and not more than 20 letters")
 	private String username;
+	@NotNull
+	@NotBlank
+	@Email
 	private String email;
+	@NotBlank
+	@Size(min = 5 ,message = "password must be at least 5 characters long")
 	private String password;
 	
 	@JsonManagedReference

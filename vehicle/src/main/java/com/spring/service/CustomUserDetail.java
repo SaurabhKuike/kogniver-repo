@@ -20,7 +20,7 @@ public class CustomUserDetail implements UserDetails {
 	/**
 	 * User class object to set all info about user and save it in database
 	 */
-	private User user;
+	private final  User user;
 
 	/**
 	 *
@@ -37,8 +37,7 @@ public class CustomUserDetail implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		List<SimpleGrantedAuthority> collect = user.getRoles().stream().map((role)->new SimpleGrantedAuthority(role.getRolename())).collect(Collectors.toList());
-		return collect;
+		return user.getRoles().stream().map((role)->new SimpleGrantedAuthority(role.getRolename())).collect(Collectors.toList());
 	}
 
 	/**

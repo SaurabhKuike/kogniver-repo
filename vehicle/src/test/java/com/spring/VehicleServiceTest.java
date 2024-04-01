@@ -24,9 +24,8 @@ public class VehicleServiceTest {
 	Vehicle v2=new Vehicle(2, "Xuv300", "20/12/22", "petrol");
 	Vehicle v3=new Vehicle(3, "magnite", "20/12/22", "petrol");
 	Vehicle v4=new Vehicle(4, "Ritz", "20/12/22", "petrol");
-	private static List<Vehicle>vehiclelist;
-	
-	@Mock
+
+    @Mock
 	private VehicleRepository repo;
 	
 	@InjectMocks
@@ -47,7 +46,7 @@ public class VehicleServiceTest {
 	
 	@Test
 	public void testgetallVehicle() {
-		vehiclelist=List.of(v1,v2,v3,v4);
+        List<Vehicle> vehiclelist = List.of(v1, v2, v3, v4);
 		when(repo.findAll()).thenReturn(vehiclelist);
 		List<Vehicle> getallVehicle = service.getallVehicle();
 		assertEquals(getallVehicle.size(), 4);
