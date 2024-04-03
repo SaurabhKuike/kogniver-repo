@@ -5,17 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.spring.Book.bean.Book;
 import com.spring.Book.service.BookService;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @RestController
+@RequestMapping("/api")
 public class BookController {
 	@Autowired
 	private BookService service;
@@ -41,10 +38,20 @@ public class BookController {
 	}
 	
 	@DeleteMapping("/deletebook/{id}")
-	public ResponseEntity<String> deletebook(@PathVariable("id")int id){
-		String deleteBook = service.deleteBook(id);
-		return new ResponseEntity<String>(deleteBook,HttpStatus.GONE);
+	public ResponseEntity<Book> deletebook(@PathVariable("id")int id){
+		 Book book= service.deleteBook(id);
+		return new ResponseEntity<Book>(book,HttpStatus.OK);
 	}
-	
+
+	@GetMapping("/getbookex")
+	public ResponseEntity<Book> getbooksex()
+	{
+		if(false)
+		return new ResponseEntity<Book>(HttpStatus.FOUND);
+
+
+		else throw new RuntimeException();
+	}
+
 	
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.Book.bean.Book;
 import com.spring.Book.repository.BookRepository;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
 
@@ -17,7 +18,7 @@ public class BookService {
 	@Autowired
 	private BookRepository repo;
 	
-	
+	private WebClient webClient;
 	public Book insertBook(Book b)
 	{
 		Book save = repo.save(b);
@@ -39,12 +40,14 @@ public class BookService {
 	}
 		return list;
 }
-	public String deleteBook(int id)
+	public Book deleteBook(int id)
 	{
+		Book book=null;
 		if(repo.existsById(id)) {
-		repo.deleteById(id);
-		return "deleted Successfully";
+			book = repo.findById(id).get();
+			repo.deleteById(id);
+		return book;
 		}
-		return "invalid Id";
+		return book;
 	}
 }
