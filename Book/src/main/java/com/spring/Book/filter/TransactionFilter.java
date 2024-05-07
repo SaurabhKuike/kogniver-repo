@@ -25,9 +25,9 @@ public class TransactionFilter implements Filter {
 
         HttpServletRequest httpServletRequest= (HttpServletRequest) request;
         HttpServletResponse httpServletResponse=(HttpServletResponse) response;
-        log.info("Starting Filter for method {} for the url {}", httpServletRequest.getMethod(),((HttpServletRequest) request).getRequestURL());
+        log.info("Starting Filter for method {} for the url {}", httpServletRequest.getMethod(),httpServletRequest.getRequestURL());
         chain.doFilter(request,response);
-        log.info("Finished Filter for method {} for the url {}",httpServletRequest.getMethod(),((HttpServletRequest) request).getRequestURL());
+        log.info("Finished Filter for method {} for the url {}",httpServletRequest.getMethod(),httpServletRequest.getRequestURL());
     }
 
     @Override

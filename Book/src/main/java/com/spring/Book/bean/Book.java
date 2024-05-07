@@ -1,6 +1,7 @@
 package com.spring.Book.bean;
 
 
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
@@ -12,6 +13,11 @@ import jakarta.persistence.Table;
 @Component
 @Entity
 @Table(name="Books_table")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,34 +27,5 @@ public class Book {
 	@Column(nullable = true)
 	private String author;
 	private int pages;
-	@Override
-	public String toString() {
-		return "Book [bId=" + bId + ", title=" + title + ", author=" + author + ", pages=" + pages + "]";
-	}
-	public int getbId() {
-		return bId;
-	}
-	public void setbId(int bId) {
-		this.bId = bId;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	public int getPages() {
-		return pages;
-	}
-	public void setPages(int pages) {
-		this.pages = pages;
-	}
-	
-	
+
 }

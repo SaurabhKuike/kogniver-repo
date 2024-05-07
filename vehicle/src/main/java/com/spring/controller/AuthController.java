@@ -52,7 +52,7 @@ public class AuthController {
 	 * @return ResponseEntity Object with message User signed in successfully and HttpStatus ok and code 200
 	 */
     @PostMapping("/login")
-    public ResponseEntity<Object> authenticateUser(@RequestBody LoginDto loginDto){
+    public ResponseEntity<Object> authenticateUser(@Valid @RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginDto.getEmail(), loginDto.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);

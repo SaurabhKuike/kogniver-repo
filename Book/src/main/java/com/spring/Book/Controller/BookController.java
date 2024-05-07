@@ -3,6 +3,7 @@ package com.spring.Book.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +53,10 @@ public class BookController {
 
 		else throw new RuntimeException();
 	}
-
+	/*@GetMapping("/getbooks/{page}/{size}")
+	public ResponseEntity<Page<Book>>  pagingBook(@PathVariable("page")int page,@PathVariable("size")int size){
+		Page<Book> allBooks = service.getAllBooks(page, size);
+		return new ResponseEntity<>(allBooks,HttpStatus.OK);
+	}*/
 	
 }

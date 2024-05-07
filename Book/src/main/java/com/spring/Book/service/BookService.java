@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.spring.Book.bean.Book;
@@ -49,5 +51,10 @@ public class BookService {
 		return book;
 		}
 		return book;
+	}
+
+	public Page<Book> getAllBooks(int page, int size) {
+		PageRequest pageRequest = PageRequest.of(page, size);
+		return repo.findAll(pageRequest);
 	}
 }
