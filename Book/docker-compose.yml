@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  spring-app:
+    container_name: spring-container
+    image: springboot-app
+    build: .
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+      MYSQL_PORT: 3306
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysqldb  # Change to match the service name
+  mysqldb:  # Corrected service name
+    container_name: mysqldb
+    image: mysql:8.4
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: bookapp
+      MYSQL_ROOT_PASSWORD: 1234

@@ -26,6 +26,7 @@ import com.spring.food.bean.Food;
 import com.spring.food.controller.FoodController;
 
 @WebMvcTest(FoodController.class)
+@WithMockUser(username = "Saurabh", roles = {"ADMIN,USER"},password = "$Aurabh123")
 public class FoodControllerTest {
 
     Food f1 = new Food(1, "Amul Milk", 70, "Tetra Pack");
@@ -39,7 +40,7 @@ public class FoodControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser(username = "Saurabh", roles = {"ADMIN,USER"})
+
     public void testgetallfood() throws Exception {
         
         
@@ -54,7 +55,7 @@ public class FoodControllerTest {
     }
     
     @Test
-    @WithMockUser(username = "Saurabh", roles = {"ADMIN,USER"})
+    @WithMockUser(username = "Saurabh", roles = {"ADMIN,USER"},password = "$Aurabh123")
     public void testgetfoodbyid() throws Exception{
     	Mockito.when(foodservice.getfood(3)).thenReturn(f4);
     	

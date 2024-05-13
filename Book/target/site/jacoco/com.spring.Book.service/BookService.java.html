@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Book</a> &gt; <a href="index.source.html" class="el_package">com.spring.Book.service</a> &gt; <span class="el_source">BookService.java</span></div><h1>BookService.java</h1><pre class="source lang-java linenums">package com.spring.Book.service;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
+import com.spring.Book.bean.Book;
+import com.spring.Book.repository.BookRepository;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@Service
+
+<span class="fc" id="L18">public class BookService {</span>
+
+	@Autowired
+	private BookRepository repo;
+	
+	private WebClient webClient;
+	public Book insertBook(Book b)
+	{
+<span class="fc" id="L26">		Book save = repo.save(b);</span>
+<span class="fc" id="L27">		return save;</span>
+	}
+	
+	public Book getBook(int id)
+	{
+<span class="fc" id="L32">		Book book = repo.findById(id).get();</span>
+<span class="fc" id="L33">		return book;</span>
+	}
+	
+	public List&lt;Book&gt; getAllBooks(){
+<span class="fc" id="L37">		Iterable&lt;Book&gt; all = repo.findAll();</span>
+<span class="fc" id="L38">		Iterator&lt;Book&gt; iterator = all.iterator();</span>
+<span class="fc" id="L39">		List&lt;Book&gt;list=new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">		while(iterator.hasNext()) {</span>
+<span class="nc" id="L41">			list.add(iterator.next());</span>
+	}
+<span class="fc" id="L43">		return list;</span>
+}
+	public Book deleteBook(int id)
+	{
+<span class="fc" id="L47">		Book book=null;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">		if(repo.existsById(id)) {</span>
+<span class="fc" id="L49">			book = repo.findById(id).get();</span>
+<span class="fc" id="L50">			repo.deleteById(id);</span>
+<span class="fc" id="L51">		return book;</span>
+		}
+<span class="fc" id="L53">		return book;</span>
+	}
+
+	public Page&lt;Book&gt; getAllBooks(int page, int size) {
+<span class="fc" id="L57">		PageRequest pageRequest = PageRequest.of(page, size);</span>
+<span class="fc" id="L58">		return repo.findAll(pageRequest);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

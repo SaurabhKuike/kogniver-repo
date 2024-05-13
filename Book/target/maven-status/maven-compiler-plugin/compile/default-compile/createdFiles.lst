@@ -1,0 +1,8 @@
+com\spring\Book\BookApplication.class
+com\spring\Book\service\BookService.class
+com\spring\Book\repository\BookRepository.class
+com\spring\Book\filter\RequestResponseLoggingFilter.class
+com\spring\Book\filter\TransactionFilter.class
+com\spring\Book\filter\FilterConfig.class
+com\spring\Book\Controller\BookController.class
+com\spring\Book\bean\Book.class

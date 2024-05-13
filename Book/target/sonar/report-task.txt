@@ -1,0 +1,6 @@
+projectKey=com.books:Book
+serverUrl=http://localhost:9000
+serverVersion=10.5.1.90531
+dashboardUrl=http://localhost:9000/dashboard?id=com.books%3ABook
+ceTaskId=b552c9ba-c3e2-4b5b-b50c-265bad54a9cf
+ceTaskUrl=http://localhost:9000/api/ce/task?id=b552c9ba-c3e2-4b5b-b50c-265bad54a9cf
